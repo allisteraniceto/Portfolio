@@ -35,7 +35,7 @@ export default function ClickZone({ zone, position, size }: ClickZoneProps) {
       }}
     >
       <boxGeometry args={size} />
-      <meshBasicMaterial transparent opacity={0} />
+      <meshBasicMaterial transparent opacity={0} depthWrite={false} />
     </mesh>
   )
 }

@@ -20,15 +20,15 @@ export const education: Education[] = [
   {
     id: 'edu-1',
     type: 'degree',
-    institution: 'University of Technology',
+    institution: 'Washington State University',
     degree: 'Bachelor of Science in Computer Science',
-    period: '2020 – 2024',
-    gpa: '3.8',
+    period: 'Graduated',
+    gpa: '3.8+',
     highlights: [
-      'Data Structures & Algorithms',
-      'Software Engineering',
-      'Machine Learning',
-      'Database Systems',
+      'Magna Cum Laude',
+      'Full-stack development',
+      'Cloud architecture',
+      'Software engineering practices',
     ],
   },
 ]
@@ -36,9 +36,8 @@ export const education: Education[] = [
 export const certifications: Certification[] = [
   {
     id: 'cert-1',
-    name: 'AWS Solutions Architect Associate',
-    issuer: 'Amazon Web Services',
+    name: 'Juniper Networks Certified Associate – Security',
+    issuer: 'Juniper Networks',
     year: 2024,
-    credentialId: 'ABC-123-XYZ',
   },
 ]

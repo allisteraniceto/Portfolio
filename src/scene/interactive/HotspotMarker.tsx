@@ -57,32 +57,33 @@ export default function HotspotMarker({ zone, position, color }: HotspotMarkerPr
   return (
     <Billboard position={position}>
       {/* Soft halo backdrop */}
-      <mesh ref={haloRef}>
+      <mesh ref={haloRef} renderOrder={10}>
         <circleGeometry args={[0.55, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.28} depthWrite={false} />
+        <meshBasicMaterial color={color} transparent opacity={0.28} depthWrite={false} depthTest={false} />
       </mesh>
 
       {/* Outer pulsing ring */}
-      <mesh ref={outerRingRef}>
+      <mesh ref={outerRingRef} renderOrder={11}>
         <ringGeometry args={[0.32, 0.36, 48]} />
-        <meshBasicMaterial color={color} transparent opacity={0.5} depthWrite={false} />
+        <meshBasicMaterial color={color} transparent opacity={0.5} depthWrite={false} depthTest={false} />
       </mesh>
 
       {/* Inner solid ring */}
-      <mesh ref={innerRingRef}>
+      <mesh ref={innerRingRef} renderOrder={12}>
         <ringGeometry args={[0.18, 0.22, 48]} />
-        <meshBasicMaterial color={color} transparent opacity={0.95} depthWrite={false} />
+        <meshBasicMaterial color={color} transparent opacity={0.95} depthWrite={false} depthTest={false} />
       </mesh>
 
       {/* Center dot */}
-      <mesh ref={dotRef}>
+      <mesh ref={dotRef} renderOrder={13}>
         <circleGeometry args={[0.05, 16]} />
-        <meshBasicMaterial color={color} transparent opacity={1} depthWrite={false} />
+        <meshBasicMaterial color={color} transparent opacity={1} depthWrite={false} depthTest={false} />
       </mesh>
 
       {/* Invisible click puck — guarantees the marker itself is interactive */}
       <mesh
         position={[0, 0, 0.01]}
+        renderOrder={14}
         onPointerEnter={(e) => {
           e.stopPropagation()
           setHoveredZone(zone)
@@ -100,7 +101,7 @@ export default function HotspotMarker({ zone, position, color }: HotspotMarkerPr
         }}
       >
         <circleGeometry args={[0.55, 24]} />
-        <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+        <meshBasicMaterial transparent opacity={0} depthWrite={false} depthTest={false} />
       </mesh>
     </Billboard>
   )
