@@ -1,10 +1,15 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import usePortfolioStore from '../store/usePortfolioStore'
+import { useIsMobile } from '../hooks/useIsMobile'
 import { ArrowLeftIcon } from './icons'
 
 export default function BackButton() {
   const activeSection = usePortfolioStore((s) => s.activeSection)
   const exitSection = usePortfolioStore((s) => s.exitSection)
+  const { isMobile } = useIsMobile()
+
+  // On mobile the panel has its own close button; no floating back button needed
+  if (isMobile) return null
 
   return (
     <AnimatePresence>
@@ -24,7 +29,8 @@ export default function BackButton() {
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem',
-            padding: '0.6rem 1.1rem',
+            padding: '0.65rem 1.1rem',
+            minHeight: 44,
             background: 'var(--color-surface-strong)',
             border: '1px solid var(--color-border)',
             borderRadius: 999,
@@ -37,14 +43,8 @@ export default function BackButton() {
             WebkitBackdropFilter: 'blur(14px)',
             transition: 'all 0.25s',
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = 'var(--color-accent-teal)'
-            e.currentTarget.style.color = '#fff'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'var(--color-border)'
-            e.currentTarget.style.color = 'var(--color-text-soft)'
-          }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--color-accent-teal)'; e.currentTarget.style.color = '#fff' }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-border)'; e.currentTarget.style.color = 'var(--color-text-soft)' }}
         >
           <ArrowLeftIcon size={14} />
           Back to Room

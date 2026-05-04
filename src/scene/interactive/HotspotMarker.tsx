@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { Billboard } from '@react-three/drei'
 import * as THREE from 'three'
 import usePortfolioStore from '../../store/usePortfolioStore'
+import { isTouch } from '../../hooks/useIsMobile'
 
 interface HotspotMarkerProps {
   zone: string
@@ -87,17 +88,17 @@ export default function HotspotMarker({ zone, position, color }: HotspotMarkerPr
         onPointerEnter={(e) => {
           e.stopPropagation()
           setHoveredZone(zone)
-          document.body.style.cursor = 'pointer'
+          if (!isTouch) document.body.style.cursor = 'pointer'
         }}
         onPointerLeave={() => {
           setHoveredZone(null)
-          document.body.style.cursor = 'default'
+          if (!isTouch) document.body.style.cursor = 'default'
         }}
         onClick={(e) => {
           e.stopPropagation()
           navigateTo(zone)
           setHoveredZone(null)
-          document.body.style.cursor = 'default'
+          if (!isTouch) document.body.style.cursor = 'default'
         }}
       >
         <circleGeometry args={[0.55, 24]} />

@@ -108,7 +108,7 @@ export default function LoadingScreen() {
           </motion.p>
 
           <div style={{
-            width: 220,
+            width: 'min(220px, 70vw)',
             height: 2,
             background: 'rgba(255,255,255,0.08)',
             borderRadius: 1,

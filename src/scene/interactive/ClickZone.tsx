@@ -1,4 +1,5 @@
 import usePortfolioStore from '../../store/usePortfolioStore'
+import { isTouch } from '../../hooks/useIsMobile'
 
 interface ClickZoneProps {
   zone: string
@@ -18,19 +19,19 @@ export default function ClickZone({ zone, position, size }: ClickZoneProps) {
         if (!activeSection) {
           e.stopPropagation()
           setHoveredZone(zone)
-          document.body.style.cursor = 'pointer'
+          if (!isTouch) document.body.style.cursor = 'pointer'
         }
       }}
       onPointerLeave={() => {
         setHoveredZone(null)
-        document.body.style.cursor = 'default'
+        if (!isTouch) document.body.style.cursor = 'default'
       }}
       onClick={(e) => {
         if (!activeSection) {
           e.stopPropagation()
           navigateTo(zone)
           setHoveredZone(null)
-          document.body.style.cursor = 'default'
+          if (!isTouch) document.body.style.cursor = 'default'
         }
       }}
     >

@@ -120,3 +120,27 @@ button {
   0%, 100% { transform: scale(1); opacity: 0.7; }
   50% { transform: scale(1.4); opacity: 1; }
 }
+
+/* ── Mobile safe-area and touch adjustments ───────────────────────────────── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Touch devices: remove tap highlight flash */
+@media (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button, a {
+    touch-action: manipulation;
+  }
+}
+
+/* Panels go full-screen on narrow viewports */
+@media (max-width: 767px) {
+  :root {
+    --panel-width: 100vw;
+  }
+}
