@@ -380,7 +380,7 @@ function MobileHUD({ navigateTo }: { navigateTo: (s: string) => void }) {
           style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--color-accent-teal)', boxShadow: '0 0 6px var(--color-accent-teal)', flexShrink: 0 }}
         />
         <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--color-muted)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-          Tap an object to explore
+          Swipe to look · Tap to explore
         </p>
       </motion.div>
     </>
