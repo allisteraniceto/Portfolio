@@ -1,54 +1,37 @@
-# React + TypeScript + Vite
+# Allister Aniceto — Interactive Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A 3D interactive portfolio built as a virtual room. Click or tap on objects in the room to explore my projects, work experience, and education.
 
-Currently, two official plugins are available:
+**[Live Site →](https://allister18.github.io/WebPortfolio)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+You land in a virtual studio. Three areas of the room each represent a section of my portfolio:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+| Object | Section |
+|--------|---------|
+| 🖥️ Desk | Personal Projects |
+| 📚 Bookshelf | Education & Certifications |
+| 🗒️ Whiteboard | Work Experience |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Hover over (or tap on mobile) any glowing marker to see what's there, then click to open the detail panel.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Features
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Fully interactive 3D room** — built with Three.js and React Three Fiber
+- **Smooth camera transitions** — the camera glides to each section when you navigate
+- **Mobile-friendly** — works on phones and tablets with touch support and a responsive UI
+- **Post-processing effects** — bloom, chromatic aberration, and vignette for a cinematic look
+- **No backend required** — fully static, deployed free on GitHub Pages
+
+## Tech
+
+React · TypeScript · Three.js · React Three Fiber · Framer Motion · Zustand · Vite
+
+## Contact
+
+- **Email:** allisteraniceto@gmail.com
+- **LinkedIn:** [linkedin.com/in/allisteraniceto](https://www.linkedin.com/in/allisteraniceto)
+- **GitHub:** [github.com/allisteraniceto](https://github.com/allisteraniceto)
